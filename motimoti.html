@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>もちもちくんの隠れ家</title>
+  <link rel="stylesheet" href="motimoticss.css">
+</head>
+
+<body>
+  <!-- 🎵 BGM（非表示） -->
+  <audio id="bgm" src="BGM.mp3" loop preload="auto"></audio>
+
+<div class="bgm-wrap">
+  <button id="playBgm" class="bgm-button" type="button" aria-label="BGM 再生/停止">
+    <img id="bgmIcon" src="bgm-pause.png" alt="BGM再生">
+  </button>
+
+  <span class="bgm-hint">🎵 おんがく なるよ</span>
+</div>
+
+<!-- ヘッダー -->
+<header class="site-header">
+  <div class="logo">
+    <a href="motimoti.html">もちもちくんの隠れ家</a>
+  </div>
+
+  <nav class="main-nav">
+    <ul>
+      <!-- おしらせ → 専用ページへ -->
+      <li><a href="news.html">おしらせ</a></li>
+      <li><a href="#profile">ぷろふぃーる</a></li>
+      <li><a href="gallery.html">ぎゃらりー</a></li>
+      <li><a href="shop.html">おかいもの</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <!-- メインビジュアル（画像に変更） -->
+  <section class="hero">
+    <img src="S__49340481.jpg" alt="もちもちくんのせかいへようこそ" class="hero-img">
+  </section>
+
+  <!-- おしらせ -->
+  <section id="news" class="section">
+    <h2>おしらせ</h2>
+    <ul class="news-list">
+      <li><a href="news.html#line">🎉 12月：LINEスタンプ第2弾リリース！</a></li>
+      <li><a href="news.html#nuigurumi">🧸 新商品：ぬいぐるみ発売決定！</a></li>
+      <li><a href="news.html#mug">☕ 新商品：マグカップ発売決定！</a></li>
+      <li><a href="news.html#open">🎉もちもちくんのサイトがオープン！！</a></li>
+    </ul>
+
+
+    <div class="news-link">
+      <a href="news.html">▶もっとみる</a>
+    </div>
+  </section>
+
+  <!-- プロフィール -->
+  <section id="profile" class="section">
+    <h2>ぷろふぃーる</h2>
+    <div class="profile-content">
+      <img src="S__50839619.jpg" alt="モチモチ君" class="profile-image">
+      <ul>
+        <li><strong>なまえ：</strong>もちもちくん</li>
+        <li><strong>とくちょう：</strong>やさしくてぷにぷに</li>
+        <li><strong>すきなもの：</strong>おにくとおひるね</li>
+        <li><strong>とくぎ：</strong>たくさんたべる・きゅうどう</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ぎゃらりー -->
+  <section id="gallery" class="section">
+    <h2>ぎゃらりー</h2>
+    <div class="gallery-grid">
+      <img src="S__49340418_0.jpg" alt="ぎゅうどんのひ">
+      <img src="S__49340420_0.jpg" alt="おうさま">
+      <img src="S__50839626.jpg" alt="なつのひ">
+    </div>
+    <div class="news-link">
+    <a href="gallery.html">▶もっとみる</a>
+    </div>
+  </section>
+
+  <!-- おかいもの -->
+  <section id="shop" class="section">
+    <h2>おかいもの</h2>
+    <div class="shop-items">
+      <a href="shop.html" class="item-link">
+        <div class="item-card">
+          <img src="S__50839641.jpg" alt="ぬいぐるみ">
+          <p>もちもちぬいぐるみ ¥1,200</p>
+        </div>
+      </a>
+
+      <a href="shop.html" class="item-link">
+        <div class="item-card">
+          <img src="S__50839633.jpg" alt="マグカップ">
+          <p>もちもちマグカップ ¥1,200</p>
+        </div>
+      </a>
+
+    </div>
+    <div class="news-link">
+    <a href="shop.html">▶もっとみる</a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+<footer class="site-footer">
+  <nav class="footer-nav" aria-label="フッターナビ">
+    <ul>
+     <li><a href="policy.html">このサイトについて</a></li>
+     <li><a href="credit.html">クレジット</a></li>
+     <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <small class="copyright">&copy; みっさん All Rights Reserved.</small>
+</footer>
+
+<script>
+  const bgm = document.getElementById("bgm");
+  const btn = document.getElementById("playBgm");
+  const icon = document.getElementById("bgmIcon");
+
+  let isPlaying = false;
+
+  btn.addEventListener("click", async () => {
+    try {
+      if (!isPlaying) {
+        await bgm.play();
+        isPlaying = true;
+        icon.src = "bgm-play.png";   // ▶ 再生中の画像
+        icon.alt = "BGM停止";
+      } else {
+        bgm.pause();
+        isPlaying = false;
+        icon.src = "bgm-pause.png";  // ⏸ 停止中の画像
+        icon.alt = "BGM再生";
+      }
+    } catch (e) {
+      console.log("BGM再生エラー:", e);
+    }
+  }
+  );
+</script>
+
+</body>
+</html>
+

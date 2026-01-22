@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>外部サイトへ移動します | もちもちくんの隠れ家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="motimoticss.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="logo"><a href="motimoti.html">もちもちくんの隠れ家</a></div>
+  </header>
+
+  <main>
+    <section class="section" style="text-align:center">
+      <h2>外部の通販用サイトへ移動します</h2>
+
+      <p style="margin: 20px 0;">
+        これから先は、<strong>もちもちくんの隠れ家</strong>の管理外のページです。<br>
+      </p>
+
+      <p class="external-url" id="externalUrl"></p>
+
+      <div class="news-link" style="justify-content:center">
+        <a href="404.html">▶外部サイトへ</a>
+      </div>
+
+      <p style="margin-top:16px;">
+        <a href="javascript:history.back()">← もどる</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>&copy; みっさん All Rights Reserved.</small>
+  </footer>
+
+  <script>
+    // URLパラメータから遷移先を取得
+    const params = new URLSearchParams(location.search);
+    const url = params.get("url");
+
+    const link = document.g

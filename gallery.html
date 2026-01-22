@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ぎゃらりー | もちもちくんの隠れ家</title>
+  <link rel="stylesheet" href="motimoticss.css" />
+</head>
+
+<body>
+  <!-- ヘッダー（統一） -->
+  <header class="site-header">
+    <div class="logo"><a href="motimoti.html">もちもちくんの隠れ家</a></div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="news.html">おしらせ</a></li>
+        <li><a href="motimoti.html#profile">ぷろふぃーる</a></li>
+        <li><a href="gallery.html">ぎゃらりー</a></li>
+        <li><a href="shop.html">おかいもの</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>ぎゃらりー</h2>
+
+      <!-- 画像一覧 -->
+      <div class="gallery-grid gallery-archive">
+        <figure class="gallery-item">
+          <img src="S__49340418_0.jpg" alt="ぎゅうどんのひ">
+          <figcaption>ぎゅうどんのひ</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="S__49340420_0.jpg" alt="おうさま">
+          <figcaption>おうさま</figcaption>
+        </figure>
+
+        <figure class="gallery-item">
+          <img src="S__50839626.jpg" alt="なつのひ">
+          <figcaption>なつのひ</figcaption>
+        </figure>
+
+        <!-- ↓ここから増やす用（同じ形で追加してOK） -->
+        <!--
+        <figure class="gallery-item">
+          <img src="xxx.jpg" alt="説明">
+          <figcaption>タイトル</figcaption>
+        </figure>
+        -->
+      </div>
+
+      <!-- 戻るリンク -->
+      <div class="news-link">
+        <a href="motimoti.html">← トップへ戻る</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+<footer class="site-footer">
+  <nav class="footer-nav" aria-label="フッターナビ">
+    <ul>
+     <li><a href="policy.html">このサイトについて</a></li>
+     <li><a href="credit.html">クレジット</a></li>
+     <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <small class="copyright">&copy; みっさん All Rights Reserved.</small>
+</footer>
+
+  <!-- 画像クリックで拡大（モーダル） -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="閉じる">×</button>
+    <img id="lightboxImg" alt="">
+    <p id="lightboxCap"></p>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll(".gallery-item img");
+    const box = document.getElementById("lightbox");
+    const boxImg = document.getElementById("lightboxImg");
+    const boxCap = document.getElementById("lightboxCap");
+    const closeBtn = document.getElementById("lightboxClose");
+
+    items.forEach(img => {
+      img.addEventListener("click", () => {
+        boxImg.src = img.src;
+        boxImg.alt = img.alt;
+        boxCap.textContent = img.alt;
+        box.classList.add("open");
+        box.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    function closeBox() {
+      box.classList.remove("open");
+      box.setAttribute("aria-hidden", "true");
+    }
+
+    closeBtn.addEventListener("click", closeBox);
+    box.addEventListener("click", (e) => {
+      if (e.target === box) closeBox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeBox();
+    });
+  </script>
+</body>
+</html>

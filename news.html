@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>おしらせ一覧 | もちもちくんの隠れ家</title>
+  <link rel="stylesheet" href="motimoticss.css" />
+</head>
+
+<body>
+<body>
+  <!-- 🎵 BGM（非表示） -->
+  <audio id="bgm" src="BGM.mp3" loop preload="auto"></audio>
+
+<div class="bgm-wrap">
+  <button id="playBgm" class="bgm-button" type="button" aria-label="BGM 再生/停止">
+    <img id="bgmIcon" src="bgm-pause.png" alt="BGM再生">
+  </button>
+
+  <span class="bgm-hint">🎵 おんがく なるよ</span>
+</div>
+
+  <!-- ヘッダー（indexと統一） -->
+  <header class="site-header">
+    <div class="logo"><a href="motimoti.html">もちもちくんの隠れ家</a></div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="news.htmlr">おしらせ</a></li>
+        <li><a href="motimoti.html#profile">ぷろふぃーる</a></li>
+        <li><a href="gallery.html">ぎゃらりー</a></li>
+        <li><a href="shop.html">おかいもの</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>おしらせ一覧</h2>
+
+      <ul class="news-archive">
+        <li class="news-item" id="line">
+          <div class="news-meta">2025/12/01</div>
+          <h3 class="news-title">🎉 LINEスタンプがリリース！</h3>
+          <p class="news-text">
+            もちもちくんのLINEスタンプ第2弾が登場！新しい表情が増えたよ。ぜひ使ってね。
+          </p>
+        </li>
+
+        <li class="news-item" id="nuigurumi">
+          <div class="news-meta">2025/11/20</div>
+          <h3 class="news-title">🧸 新商品：ぬいぐるみ発売決定！</h3>
+          <p class="news-text">
+            もちもちくんのぬいぐるみが準備中！ふわふわぷにぷにを目指して制作中だよ。
+          </p>
+        </li>
+        
+        <li class="news-item" id="mug">
+          <div class="news-meta">2025/12/10</div>
+          <h3 class="news-title">☕ 新商品：マグカップ発売決定！</h3>
+          <p class="news-text">
+            もちもちくんデザインのマグカップが登場予定！
+            あたたかい飲み物と一緒に、ほっと一息ついてね。
+          </p>
+        </li>
+
+        <li class="news-item" id="open">
+          <div class="news-meta">2025/11/01</div>
+          <h3 class="news-title">🎉 もちもちくんのサイトがオープン！！</h3>
+          <p class="news-text">
+            ついに隠れ家が完成！おしらせ、ぎゃらりー、おかいもの…少しずつ増やしていくよ。
+          </p>
+        </li>
+      </ul>
+
+      <div class="news-link">
+        <a href="motimoti.html">← トップに戻る</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- フッター -->
+<footer class="site-footer">
+  <nav class="footer-nav" aria-label="フッターナビ">
+    <ul>
+     <li><a href="policy.html">このサイトについて</a></li>
+     <li><a href="credit.html">クレジット</a></li>
+     <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <small class="copyright">&copy; みっさん All Rights Reserved.</small>
+</footer>
+
+  <!-- ✅ scriptはbodyの一番下に置く -->
+  <script>
+    const bgm = document.getElementById("bgm");
+    const btn = document.getElementById("playBgm");
+    let isPlaying = false;
+
+    btn.addEventListener("click", async () => {
+      try {
+        if (!isPlaying) {
+          await bgm.play();   // ← ユーザー操作内なので再生できる
+          isPlaying = true;
+        } else {
+          bgm.pause();
+          isPlaying = false;
+        }
+      } catch (e) {
+        console.log("再生できませんでした:", e);
+        alert("ブラウザの設定で再生がブロックされてるかも！一度ページをクリックしてから押してみてね。");
+      }
+    });
+  </script>
+</body>
+</html>
